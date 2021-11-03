@@ -8,13 +8,14 @@ const connect = function () {
   });
 
   conn.on('connect',function(){
-    console.log('Successfully connected to game server');
-    conn.write('Name: 007')
+    console.log('Successfully connected to game server'); // when connected to server
+    conn.write('Name: 007') // name of snake
+    conn.write('Move: Up')
   })
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
-  return (conn,console.log("you ded cuz you idled"));
-}
+
+} // end function 
 
 module.exports={ connect }
