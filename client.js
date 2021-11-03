@@ -10,10 +10,9 @@ const connect = function () {
   conn.on('connect',function(){
     console.log('Successfully connected to game server'); // when connected to server
     conn.write('Name: 007') // name of snake
-    conn.write('Move: Up')
   })
 
-  // interpret incoming data as text
+// interpret incoming data as text
   conn.setEncoding("utf8");
 
 } // end function 
