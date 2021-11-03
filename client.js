@@ -6,6 +6,11 @@ const connect = function () {
     host: "165.227.47.243",
     port: 50541,
   });
+
+  conn.on('connect',function(){
+    console.log('Successfully connected to game server');
+  })
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
   return (conn,console.log("you ded cuz you idled"));
