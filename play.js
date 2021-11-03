@@ -17,8 +17,11 @@ const setupInput = function () {
 };
 
 const handleUserInput = function (key) {
-
-if (key === 'w'){
+// \u0003 maps to ctrl+c input
+  if (key === '\u0003') { // terminate program using ctrl + c.
+    process.exit();
+  }
+  else if (key === 'w'){
   connection.write('Move: up');
 } else if ( key === 'a'){
   connection.write('Move: left');
