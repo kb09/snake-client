@@ -37,3 +37,4 @@ const handleUserInput = function (key) {
 
 
 };
+setupInput()
