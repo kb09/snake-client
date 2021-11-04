@@ -1,35 +1,38 @@
+// setup interface to handle user input from stdin
 let connection;
 
-// Setup User Interface 
-// Specifically, so that we can handle user input via stdin
-const setupInput = function (conn) {
+const setupInput = (conn) => {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
-  stdin.setEncoding('utf8');
+  stdin.setEncoding("utf8");
   stdin.resume();
-
-  stdin.on('data', (key) => {
-    handleUserInput(key);
-  });
-
+  stdin.on('data', key => handleUserInput(key));
   return stdin;
-}
 
-const handleUserInput = function (key) {
-  // \u0003 maps to ctrl+c input
-  if (key === '\u0003') {
+
+};
+
+const handleUserInput = function(key) {
+  if (key === 'w'){
+    connection.write('Move: up')
+  } 
+  if ( key ==='a'){
+    connection.write('Move: left');
+    
+  } 
+  if ( key ==='s'){
+    connection.write('Move: down');
+    
+  } 
+  if ( key ==='d'){
+    connection.write('Move: right');}
+
+  if (key = '\u0003') { // terminate program using ctrl + c.
     process.exit();
-  } else if (key === 'w') {
-    conn.write('Move: up');
-  } else if (key === 'a') {
-    conn.write('Move: left');
-  } else if (key === 's') {
-    conn.write('Move: down');
-  } else if (key === 'd') {
-    conn.write('Move: right');
-  
-  }
+  } 
 }
 
-module.exports = { setupInput }
+
+
+module.exports ={ setupInput }
