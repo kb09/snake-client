@@ -27,12 +27,32 @@ const handleUserInput = function(key) {
   } 
   if ( key ==='d'){
     connection.write('Move: right');}
+  
+  if(key === 'l'){
+    connection.write('Say: Food')
+  }
+
+  if(key === 'o'){
+    connection.write('Say: I see you')
+  }
+
+  if(key === 'j'){
+    connection.write('Say: Going to eat you')
+  }
 
   if (key = '\u0003') { // terminate program using ctrl + c.
     process.exit();
   } 
+  
 }
-
+function sendMessage(key) {
+  if (key === 'b') {
+    connection.write('Say: Gang');
+  }
+  if (key === 'n') {
+    connection.write('Say: Whatdup');
+  }
+}
 
 
 module.exports ={ setupInput }
